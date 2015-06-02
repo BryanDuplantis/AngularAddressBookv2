@@ -4,42 +4,5 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Angular Addresses</title>
   </head>
-  <body ng-controller="Main as main">
-    <div class="container">
-      <form name="newAddressForm" ng-submit="newAddressForm.$valid &amp;&amp; main.addNewAddress()" novalidate>
-        <label>Name</label>
-        <input type="text" placeholder="John" ng-model="main.newPerson.name" required>
-        <label>Phone</label>
-        <input type="tel" placeholder="615-555-5555" ng-model="main.newPerson.phone" required>
-        <label>Twitter</label>
-        <input type="text" placeholder="@abc123" ng-model="main.newPerson.twitter" required>
-        <input type="submit" value="Add Person to Address Book" ng-disabled="newAddressForm.$invalid">
-      </form>
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Twitter</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat="person in main.people | orderBy:'name' | filter:query">
-            <td>
-              <button ng-click="main.removeAddress(person)">X</button>
-            </td>
-            <td>{{person.name | uppercase}}</td>
-            <td><a href="tel:{{person.phone}}">{{person.phone}}</a></td>
-            <td><a href="http://twitter.com/{{person.twitter}}" target="_blank">{{person.twitter}}</a></td>
-          </tr>
-        </tbody>
-      </table>
-      <input placeholder="Search" ng-model="query">
-    </div>
-    <script src="lib/build.js"></script>
-    <script src="js/main.js"></script>
-  </body>
 </html>
